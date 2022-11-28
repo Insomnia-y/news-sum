@@ -97,7 +97,7 @@ $$
 \end{aligned}
 \end{equation}
 $$
-其中$\operatorname{LCS}(X, Y)$是$X$和$Y$的最长公共子序列的长度，$m$和$n$分别表示人工标注摘要和机器自动摘要的长度（一般就是所含词的个数），$\mathrm{R}_{\mathrm{lcs}}$和$\mathrm{P}_{\mathrm{lcs}}$ 分别表示召回率和准确率，$\mathrm{F}_{\mathrm{lcs}}$ 表示ROUGE-L。
+其中 $\operatorname{LCS}(X, Y)$ 是$X$和$Y$的最长公共子序列的长度，$m$和$n$分别表示人工标注摘要和机器自动摘要的长度（一般就是所含词的个数），$\mathrm{R}_{\mathrm{lcs}}$和$\mathrm{P}_{\mathrm{lcs}}$ 分别表示召回率和准确率，$\mathrm{F}_{\mathrm{lcs}}$ 表示ROUGE-L。
 
 ### 实验结果
 
