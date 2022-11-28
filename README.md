@@ -8,23 +8,29 @@
 
 赛题来自[DataFountain比赛官网链接](https://www.datafountain.cn/competitions/541)
 
+### 模型和预训练参数
+
+mt5模型的实现来自[huggingface的transformers库](https://github.com/huggingface/transformers)
+
+[预训练模型参数](https://huggingface.co/csebuetnlp/mT5_multilingual_XLSum)经过在包含45种语言的[XL-Sum](https://huggingface.co/datasets/csebuetnlp/xlsum)数据集上预训练得到
+
+### 代码编写
+
 加载transformers库中mt5预训练模型进行测试，参考博客[稀土掘金baseline](https://juejin.cn/post/7026590075051851789)
 
 在赛题数据集上对mt5预训练模型进行微调，参考博客[Hugging Face 的 Transformers 库快速入门（八）：文本摘要任务](https://xiaosheng.run/2022/03/29/transformers-note-8.html)
 
-
-
 ## 小组分工
 
-| 姓名 | 学号 | 分工                                    |
-| ---- | ---- | --------------------------------------- |
-| yyx  | -    | 编写文档                                |
-| ypw  | -    | 实现mt5预训练模型的加载、测试、微调代码 |
-| lza  | -    | 实现模型改进                            |
-| nyk  | -    | 实现模型改进                            |
-| lrf  | -    |                                         |
-| lwj  | -    |                                         |
-| xxx  | -    |                                         |
+| 姓名 | 学号 | 分工                              |
+| ---- | ---- | --------------------------------- |
+| yyx  | -    | 编写文档                          |
+| ypw  | -    | 编写mt5预训练模型的测试、微调代码 |
+| lza  | -    | 实现模型改进                      |
+| nyk  | -    | 实现模型改进                      |
+| lrf  | -    |                                   |
+| lwj  | -    |                                   |
+| xxx  | -    |                                   |
 
 
 
