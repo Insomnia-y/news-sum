@@ -87,17 +87,10 @@ ROUGE-1 度量 uni-grams 的重合情况，ROUGE-2 度量 bi-grams 的重合情�
 ---
 
 本赛题采用ROUGE-L值进行评价，详细评分算法如下：
-$$
-\begin{equation}
-\begin{aligned}
-\mathrm{R}_{\mathrm{lcs}} & =\frac{\operatorname{LCS}(X, Y)}{m} \\
-\mathrm{P}_{\mathrm{lcs}} & =\frac{\operatorname{LCS}(X, Y)}{n} \\
 
-\mathrm{F}_{\mathrm{lcs}} & =\frac{\left(1+\beta^{2}\right) \mathrm{R}_{\mathrm{lcs}} \mathrm{P}_{\mathrm{lcs}}}{\mathrm{R}_{\mathrm{lcs}}+\beta^{2} \mathrm{P}_{\mathrm{lcs}}}
-\end{aligned}
-\end{equation}
-$$
-其中 $\operatorname{LCS}(X, Y)$ 是$X$和$Y$的最长公共子序列的长度，$m$和$n$分别表示人工标注摘要和机器自动摘要的长度（一般就是所含词的个数），$\mathrm{R}_{\mathrm{lcs}}$和$\mathrm{P}_{\mathrm{lcs}}$ 分别表示召回率和准确率，$\mathrm{F}_{\mathrm{lcs}}$ 表示ROUGE-L。
+![image-20221128200848145](https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211282008169.png)
+
+其中 $\operatorname{LCS}(X, Y)$ 是 $X$ 和 $Y$ 的最长公共子序列的长度， $m$ 和 $n$ 分别表示人工标注摘要和机器自动摘要的长度（一般就是所含词的个数）， $R_{lcs}$ 和 $P_{lcs}$ 分别表示召回率和准确率， $F_{lcs}$ 表示ROUGE-L。
 
 ### 实验结果
 
