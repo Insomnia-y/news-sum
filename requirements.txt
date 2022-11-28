@@ -12,12 +12,12 @@ bert-score==0.3.12
 blis==0.7.9
 boto3==1.23.10
 botocore==1.26.10
-# catalogue==1.0.2
-certifi>=2017.4.17
+catalogue==1.0.2
+certifi==2016.9.26
 cffi==1.15.1
 charset-normalizer==2.0.12
 click==7.1.2
-# conda-pack @ file:///home/conda/feedstock_root/build_artifacts/conda-pack_1642622318035/work
+conda-pack @ file:///home/conda/feedstock_root/build_artifacts/conda-pack_1642622318035/work
 confection==0.0.3
 contextlib2==21.6.0
 contextvars==2.4
@@ -25,7 +25,7 @@ coverage==6.2
 cryptography==38.0.1
 cycler==0.11.0
 cymem==2.0.7
-dataclasses==0.6
+dataclasses==0.8
 datasets==2.4.0
 decorator==4.4.2
 dill==0.3.4
@@ -99,16 +99,16 @@ sentencepiece==0.1.97
 six==1.16.0
 smart-open==5.2.1
 sniffio==1.2.0
-# spacy==2.3.8
-# spacy-legacy==3.0.10
-# spacy-loggers==1.0.3
-# srsly==2.4.0
+spacy==2.3.8
+spacy-legacy==3.0.10
+spacy-loggers==1.0.3
+srsly==1.0.6
 starlette==0.19.1
 tabulate==0.8.10
-# thinc==7.4.6
+thinc==7.4.6
 threadpoolctl==3.1.0
 tokenizers==0.12.1
-# torch==1.7.1+cu110
+torch==1.7.1+cu110
 tqdm==4.64.1
 transformers==4.18.0
 typer==0.3.2
