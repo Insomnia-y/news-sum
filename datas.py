@@ -1,12 +1,9 @@
 import torch
 from torch.utils.data import Dataset
-from transformers import BertTokenizer
-from typing import List, Tuple, Optional, Dict
-from pathlib import Path
-import json
-from dataclasses import dataclass
-import logging
-import random
+import nlpaug.augmenter.word as naw
+from nlpaug.flow import Sometimes
+import re
+WHITESPACE_HANDLER = lambda k: re.sub('\s+', ' ', re.sub('\n+', ' ', k.strip()))
 
 class NewsDataset(Dataset):
     def __init__(self, data_file):
@@ -30,18 +27,64 @@ class NewsDataset(Dataset):
     def __getitem__(self, idx):
         return self.data[idx]
 
+class NewsevalDataset(Dataset):
+    def __init__(self, data_file):
+        self.data = self.load_data(data_file)
+
+    def load_data(self, data_file):
+        Data = {}
+        with open(data_file, 'r', encoding='utf-8') as f:
+            train_data_all = f.readlines()
+            for tem in train_data_all:
+                tem = tem.split("\t")
+                Data[int(tem[0])] = {
+                    'ID': tem[0],
+                    'content': WHITESPACE_HANDLER(tem[1][:-1])
+                }
+        return Data
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        return self.data[idx]
 
 
-class DataCollator:
-    def __init__(self, tokenizer,model,max_input_length=512,max_target_length=64):
+class DataevalCollator:
+    def __init__(self, tokenizer,model,max_input_length=768,max_target_length=64):
         self.tokenizer = tokenizer
         self.max_input_length = max_input_length
         self.max_target_length = max_target_length
         self.model = model
     def __call__(self, batch_samples):
-        batch_inputs, batch_targets = [], []
+        batch_inputs=[]
         for sample in batch_samples:
             batch_inputs.append(sample['content'])
+        batch_data = self.tokenizer(
+            batch_inputs,
+            padding=True,
+            max_length=self.max_input_length,
+            truncation=True,
+            return_tensors="pt"
+        )
+        return batch_data
+
+
+class DataCollator:
+    def __init__(self, tokenizer,model,max_input_length=512,max_target_length=64,training=True):
+        self.tokenizer = tokenizer
+        self.max_input_length = max_input_length
+        self.max_target_length = max_target_length
+        self.model = model
+        self.training = training
+        self.aug = Sometimes([naw.SynonymAug(aug_p=0.1),  naw.RandomWordAug(aug_p=0.1)])
+    def __call__(self, batch_samples):
+        batch_inputs, batch_targets = [], []
+        for sample in batch_samples:
+            if self.training:
+                batch_inputs.append(self.aug.augment(sample['content'], 1))
+            else:
+                batch_inputs.append(sample['content'])
             batch_targets.append(sample['title'])
         batch_data = self.tokenizer(
             batch_inputs,

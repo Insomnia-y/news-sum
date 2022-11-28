@@ -54,7 +54,7 @@ def many_item(train,model,tokenizer,HANDLER,test_num=5):
         train.loc[idx, "summary"] = summary
     return train
 
-def test_eval(test,model,tokenizer,HANDLER,test_num=1000):
+def test_eval(test,model,tokenizer,HANDLER,device,test_num=1000):
     for idx, article_text in tqdm(enumerate(test["Text"]), total=test_num):
         input_ids = tokenizer(
             [HANDLER(article_text)],
@@ -64,7 +64,7 @@ def test_eval(test,model,tokenizer,HANDLER,test_num=1000):
             max_length=768
         )["input_ids"]
         output_ids = model.generate(
-            input_ids=input_ids,
+            input_ids=input_ids.to(device),
             max_length=512,
             min_length=int(len(article_text) / 32),
             no_repeat_ngram_size=3,

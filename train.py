@@ -50,10 +50,33 @@ def test_loop(dataloader, model,tokenizer,device,max_target_length=64):
         label_tokens = numpy.where(label_tokens != -100, label_tokens, tokenizer.pad_token_id)
         decoded_labels = tokenizer.batch_decode(label_tokens, skip_special_tokens=True)
 
-        preds += [' '.join(pred.strip()) for pred in decoded_preds]
-        labels += [' '.join(label.strip()) for label in decoded_labels]
+        preds += [pred.strip() for pred in decoded_preds]
+        labels += [label.strip() for label in decoded_labels]
     scores = rouge.get_scores(hyps=preds, refs=labels, avg=True)
     result = {key: value['f'] * 100 for key, value in scores.items()}
     result['avg'] = numpy.mean(list(result.values()))
     print(f"Rouge1: {result['rouge-1']:>0.2f} Rouge2: {result['rouge-2']:>0.2f} RougeL: {result['rouge-l']:>0.2f}\n")
     return result
+
+def data_eval(dataloader, model,tokenizer,device,max_target_length=64):
+    preds = []
+    test = {"ID":[],"Title":[]}
+    model.eval()
+    for batch_data in tqdm(dataloader):
+        with torch.no_grad():
+            generated_tokens = model.generate(
+                batch_data["input_ids"].to(device),
+                max_length=max_target_length,
+                num_beams=5,
+                no_repeat_ngram_size=3,
+            ).cpu().numpy()
+        if isinstance(generated_tokens, tuple):
+            generated_tokens = generated_tokens[0]
+        decoded_preds = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
+        preds += [pred.strip() for pred in decoded_preds]
+    for i in range(len(preds)):
+        test["ID"].append(i)
+        test["Title"].append(preds[i])
+    return test
+
+
