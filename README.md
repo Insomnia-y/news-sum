@@ -4,9 +4,6 @@
 
 <img src="https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211281927594.png" alt="image-20221128192713487" style="zoom: 25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221128192846738.png" alt="image-20221128192846738" style="zoom: 25%;" />
-
-[TOC]
 
 ## 参考资料
 
