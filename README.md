@@ -28,13 +28,15 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 | 姓名 | 学号 | 分工                              |
 | ---- | ---- | --------------------------------- |
-| yyx  | -    | 编写文档                          |
-| ypw  | -    | 编写mt5预训练模型的测试、微调代码 |
-| lza  | -    | 实现模型改进                      |
-| nyk  | -    | 实现模型改进                      |
-| lrf  | -    |                                   |
-| lwj  | -    |                                   |
-| xxx  | -    |                                   |
+| lrf  | -    | 实现transformer框架                                  |
+| lwj  | -    | 本项目解决方案一：mt5预训练模型的调研                                 |
+| ypw  | -    | 本项目解决方案一：mt5预训练模型的测试、微调 |
+| lpr  | -    | 本项目解决方案二：2022年ACL文本摘要sota                  |
+| lza  | -    | discussion中“MRC介绍”部分                      |
+| nyk  | -    | discussion中“VQA介绍”部分                      |
+| yyx  | -    | discussion中“用MRC的思路实现VQA”部分               |
+
+
 
 ## 问题描述
 
