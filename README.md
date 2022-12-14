@@ -60,7 +60,17 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 #### 1. transformers
 
-（todo lrf）
+Transformers 提供了数以千计的预训练模型，包括本项目的文本摘要任务，提供了便于快速下载和使用的API，可以将预训练模型用在本项目给定的以CNN 和Daily Mail的报刊新闻为文章基础的数据集上微调，且模型文件可单独使用，方便魔改和快速实验。
+
+在本项目中，直接使用 Transformers 库自带的 MT5ForConditionalGeneration类来构建模型，并加载预训练模型：
+```python 
+from transformers import AutoModelForSeq2SeqLM
+model_name = "mT5_multilingual_XLSum"
+model = MT5ForConditionalGeneration.from_pretrained(model_name)
+
+本项目使用的Transformers库的类图如下：
+![image](https://user-images.githubusercontent.com/60568578/207641118-ec4bac0d-ada5-4567-ba33-a07aa2912468.png)
+
 
 ## 技术方案实现
 
