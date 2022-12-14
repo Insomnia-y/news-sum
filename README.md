@@ -50,17 +50,17 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 #### 1. mt5
 
-（todo lwj）
+（todo 梁婉钧）
 
 #### 2. 2022ACL
 
-（todo lpr）
+（todo 卢品仁）
 
 ### 框架
 
 #### 1. transformers
 
-（todo lrf）
+（todo 李润飞）
 
 ## 技术方案实现
 
@@ -68,11 +68,11 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 #### 1. mt5
 
-（todo ypw）
+（todo 袁沛文）
 
 #### 2. 2022ACL
 
-（todo lpr）
+（todo 卢品仁）
 
 ## 性能测试
 
@@ -118,8 +118,8 @@ ROUGE-1 度量 uni-grams 的重合情况，ROUGE-2 度量 bi-grams 的重合情�
 | ------------------------- | ------- | ------- | ------- |
 | 预训练模型                | 80.03   | 39.91   | 67.68   |
 | 微调后模型（Epoch=2）     | 87.91   | 53.17   | 77.47   |
-| mt5微调后模型（训练结束） | todo    | todo    | todo    |
-| 2022ACL                   | todo    | todo    | todo    |
+| mt5微调后模型（训练结束） | （todo 袁沛文）    | todo    | todo    |
+| 2022ACL                   | （todo 卢品仁）    | todo    | todo    |
 
 预训练模型：
 
