@@ -26,15 +26,15 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 ## 小组成员与分工
 
-| 姓名 | 学号 | 分工                              |
-| ---- | ---- | --------------------------------- |
-| lrf  | -    | 实现transformer框架                                  |
-| lwj  | -    | 本项目解决方案一：mt5预训练模型的调研                                 |
+| 姓名 | 学号 | 分工                                        |
+| ---- | ---- | ------------------------------------------- |
+| lrf  | -    | 实现transformer框架                         |
+| lwj  | -    | 本项目解决方案一：mt5预训练模型的调研       |
 | ypw  | -    | 本项目解决方案一：mt5预训练模型的测试、微调 |
-| lpr  | -    | 本项目解决方案二：2022年ACL文本摘要sota                  |
-| lza  | -    | discussion中“MRC介绍”部分                      |
-| nyk  | -    | discussion中“VQA介绍”部分                      |
-| yyx  | -    | discussion中“用MRC的思路实现VQA”部分               |
+| lpr  | -    | 本项目解决方案二：2022年ACL文本摘要sota     |
+| lza  | -    | discussion中“MRC介绍”部分                   |
+| nyk  | -    | discussion中“VQA介绍”部分                   |
+| yyx  | -    | discussion中“用MRC的思路实现VQA”部分        |
 
 
 
@@ -42,21 +42,37 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 依据真实的新闻文章，利用机器学习相关技术，建立高效的摘要生成模型，为新闻文档生成相应的内容摘要。
 
-## 技术方案
+## 技术方案介绍
 
-> 使用的模型 & 使用的框架
+> 写方法介绍，不涉及具体代码
 
 ### 模型
 
-mt5
+#### 1. mt5
 
-TODO
+（todo lwj）
+
+#### 2. 2022ACL
+
+（todo lpr）
 
 ### 框架
 
-transformers
+#### 1. transformers
 
-TODO
+（todo lrf）
+
+## 技术方案实现
+
+> 简单介绍一下代码即可，例如主要的API分别实现了什么功能
+
+#### 1. mt5
+
+（todo ypw）
+
+#### 2. 2022ACL
+
+（todo lpr）
 
 ## 性能测试
 
@@ -98,23 +114,22 @@ ROUGE-1 度量 uni-grams 的重合情况，ROUGE-2 度量 bi-grams 的重合情�
 
 将**预训练模型**和**微调后模型**进行性能对比：
 
-|                                             | ROUGE-1 | ROUGE-2 | ROUGE-L |
-| ------------------------------------------- | ------- | ------- | ------- |
-| 预训练模型                                  | 80.03   | 39.91   | 67.68   |
-| 微调后模型（Epoch==2，时间为20221128-1950） | 87.91   | 53.17   | 77.47   |
-| 微调后模型（训练结束）                      |         |         |         |
+|                           | ROUGE-1 | ROUGE-2 | ROUGE-L |
+| ------------------------- | ------- | ------- | ------- |
+| 预训练模型                | 80.03   | 39.91   | 67.68   |
+| 微调后模型（Epoch=2）     | 87.91   | 53.17   | 77.47   |
+| mt5微调后模型（训练结束） | todo    | todo    | todo    |
+| 2022ACL                   | todo    | todo    | todo    |
 
 预训练模型：
 
 ![image-20221128195145622](https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211281951652.png)
 
-微调后模型：
+微调后模型（Epoch=2）：
 
 ![image-20221128195334931](https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211281953957.png)
 
-## 问题及解决方法
 
-TODO
 
 ## Readme
 
