@@ -28,13 +28,13 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 | 姓名 | 学号 | 分工                                        |
 | ---- | ---- | ------------------------------------------- |
-| lrf  | -    | 实现transformer框架                         |
-| lwj  | -    | 本项目解决方案一：mt5预训练模型的调研       |
-| ypw  | -    | 本项目解决方案一：mt5预训练模型的测试、微调 |
-| lpr  | -    | 本项目解决方案二：2022年ACL文本摘要sota     |
-| lza  | -    | discussion中“MRC介绍”部分                   |
-| nyk  | -    | discussion中“VQA介绍”部分                   |
-| yyx  | -    | discussion中“用MRC的思路实现VQA”部分        |
+| 李润X  | -    | 实现transformer框架                         |
+| 梁XX  | -    | 本项目解决方案一：mt5预训练模型的调研       |
+| 袁XX  | -    | 本项目解决方案一：mt5预训练模型的测试、微调 |
+| 卢XX  | -    | 本项目解决方案二：2022年ACL文本摘要sota     |
+| 李子X  | -    | discussion中“MRC介绍”部分                   |
+| 宁XX  | -    | discussion中“VQA介绍”部分                   |
+| 叶XX  | -    | discussion中“用MRC的思路实现VQA”部分        |
 
 
 
@@ -50,17 +50,17 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 #### 1. mt5
 
-（todo 梁婉钧）
+（todo lwj）
 
 #### 2. 2022ACL
 
-（todo 卢品仁）
+（todo lpr）
 
 ### 框架
 
 #### 1. transformers
 
-（todo 李润飞）
+（todo lrf）
 
 ## 技术方案实现
 
@@ -68,11 +68,11 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 #### 1. mt5
 
-（todo 袁沛文）
+（todo ypw）
 
 #### 2. 2022ACL
 
-（todo 卢品仁）
+（todo lpr）
 
 ## 性能测试
 
@@ -118,8 +118,8 @@ ROUGE-1 度量 uni-grams 的重合情况，ROUGE-2 度量 bi-grams 的重合情�
 | ------------------------- | ------- | ------- | ------- |
 | 预训练模型                | 80.03   | 39.91   | 67.68   |
 | 微调后模型（Epoch=2）     | 87.91   | 53.17   | 77.47   |
-| mt5微调后模型（训练结束） | （todo 袁沛文）    | todo    | todo    |
-| 2022ACL                   | （todo 卢品仁）    | todo    | todo    |
+| mt5微调后模型（训练结束） | （todo ypw）    | todo    | todo    |
+| 2022ACL                   | （todo lpr）    | todo    | todo    |
 
 预训练模型：
 
