@@ -67,6 +67,7 @@ Transformers 提供了数以千计的预训练模型，包括本项目的文本�
 from transformers import AutoModelForSeq2SeqLM
 model_name = "mT5_multilingual_XLSum"
 model = MT5ForConditionalGeneration.from_pretrained(model_name)
+```
 
 本项目使用的Transformers库的类图如下：
 ![image](https://user-images.githubusercontent.com/60568578/207641118-ec4bac0d-ada5-4567-ba33-a07aa2912468.png)
