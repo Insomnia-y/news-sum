@@ -74,11 +74,43 @@ model = MT5ForConditionalGeneration.from_pretrained(model_name)
 
 > 简单介绍一下代码即可，例如主要的API分别实现了什么功能
 
-#### 1. mt5
+### 1. mt5
+####1.模型
+使用了huggingface的代码框架，并进行了本地化方便修改模型module
+![img_1.png](img_1.png)
+![img.png](img.png)
 
-（todo ypw）
+####2.数据准备
+class NewsDataset(Dataset):加载训练数据
 
-#### 2. 2022ACL
+class NewsevalDataset(Dataset):加载测试数据
+
+class DataCollator：训练数据collator. 
+该过程中对文本内容进行了EDA增强：以0.1的概率进行同义词替换；以0.1的概率进行随机删减
+
+class DataevalCollator:测试数据collator
+
+####3.训练代码
+demo.py：主文件
+
+def train_loop：训练单个epoch
+
+def test_loop：验证单个epoch
+
+def data_eval：生成测试集对应的摘要内容。 
+采用beamsearch进行解码，num_beams=5
+
+####4.超参数设置
+![img_2.png](img_2.png)
+
+####5.硬件环境
+GeForce RTX 3090 单卡训练
+
+
+
+
+
+### 2. 2022ACL
 
 （todo lpr）
 
@@ -122,21 +154,15 @@ ROUGE-1 度量 uni-grams 的重合情况，ROUGE-2 度量 bi-grams 的重合情�
 
 将**预训练模型**和**微调后模型**进行性能对比：
 
-|                           | ROUGE-1 | ROUGE-2 | ROUGE-L |
-| ------------------------- | ------- | ------- | ------- |
-| 预训练模型                | 80.03   | 39.91   | 67.68   |
-| 微调后模型（Epoch=2）     | 87.91   | 53.17   | 77.47   |
-| mt5微调后模型（训练结束） | （todo ypw）    | todo    | todo    |
-| 2022ACL                   | （todo lpr）    | todo    | todo    |
+|               | ROUGE-L    |
+|---------------|------------|
+| 预训练模型         | 22.54      |
+| mt5微调后模型      | 29.68      |
+| mt5微调+EDA数据增强 | 30.83      |
+| 2022ACL       | （todo lpr） |
 
-预训练模型：
-
-![image-20221128195145622](https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211281951652.png)
-
-微调后模型（Epoch=2）：
-
-![image-20221128195334931](https://cdn.jsdelivr.net/gh/1candoallthings/figure-bed@main/img/202211281953957.png)
-
+mt5微调+EDA数据增强：
+![](../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d736ed6a2d60610019c5adf467dd7be0/Message/MessageTemp/9e20f478899dc29eb19741386f9343c8/Image/5051671078064_.pic.jpg)
 
 
 ## Readme
