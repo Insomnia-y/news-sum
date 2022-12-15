@@ -75,12 +75,12 @@ model = MT5ForConditionalGeneration.from_pretrained(model_name)
 > 简单介绍一下代码即可，例如主要的API分别实现了什么功能
 
 ### 1. mt5
-####a.模型
+#### a.模型
 使用了huggingface的代码框架，并进行了本地化方便修改模型module
 ![img_1.png](img_1.png)
 ![img.png](img.png)
 
-####b.数据准备
+#### b.数据准备
 class NewsDataset(Dataset):加载训练数据
 
 class NewsevalDataset(Dataset):加载测试数据
@@ -90,7 +90,7 @@ class DataCollator：训练数据collator.
 
 class DataevalCollator:测试数据collator
 
-####c.训练代码
+#### c.训练代码
 demo.py：主文件
 
 def train_loop：训练单个epoch
@@ -100,10 +100,10 @@ def test_loop：验证单个epoch
 def data_eval：生成测试集对应的摘要内容。 
 采用beamsearch进行解码，num_beams=5
 
-####d.超参数设置
+#### d.超参数设置
 ![img_2.png](img_2.png)
 
-####e.硬件环境
+#### e.硬件环境
 GeForce RTX 3090 单卡训练
 
 
