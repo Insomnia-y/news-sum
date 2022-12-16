@@ -112,7 +112,7 @@ p_{g_\theta} (s_t|D, S_{<j}; \theta)
 $$
 
 
-上式与交叉熵函数最大的不同模型在预测下一个 token 时，用的是之前预测的序列 $S_{<j}$ 代替参考序列 $S_{<j}^*$，这就导致出现 exposure bias 问题：即使模型 $g$ 训练拟合的很好，一但在预测过程中 $S_{<j}$ 出现偏移，跟 $S_{<j}^*$ 不一致，模型预测的性能就会衰退、下降的问题。
+上式与交叉熵函数最大的不同模型在预测下一个 token 时，用的是之前预测的序列 $S_{<j}$ 代替参考序列 $S_{<j}^{*}$，这就导致出现 exposure bias 问题：即使模型 $g$ 训练拟合的很好，一但在预测过程中 $S_{<j}$ 出现偏移，跟 $S_{<j}^{*}$ 不一致，模型预测的性能就会衰退、下降的问题。
 
 摘要抽取模型 $g$ 应该具备给更好的候选摘要序列分配更高的概率，然而在MLE训练方式下，是达不到的。其反例就是：当一个模型获得 MLE loss 为 0 的时候，那应该在推测时，跟参考序列不一样的候选序列的概率应该都为 0，然后实际中是不存在的(因为 exposure bias 的存在)。
 
@@ -123,8 +123,8 @@ $$
 
 $$
 \begin{cases}
-p_{true^†}(S|D) = 1 - \beta, &S = S^* \\
-\sum_{S \in \mathcal{S}} p_{true^†}(S|D) = \beta, &S \not= S^* \\
+p_{true^†}(S|D) = 1 - \beta, &S = S^{*} \\
+\sum_{S \in \mathcal{S}} p_{true^†}(S|D) = \beta, &S \not= S^{*} \\
 p_{true^†}(S_i|D) > p_{true^†}(S_j|D), &\forall S_i, S_j \in \mathcal{\hat{S}}, M(S_i) > M(S_j)
 \end{cases}
 $$
@@ -139,7 +139,7 @@ f(S) = \frac{\sum_{t=1}^l \log p_{g_\theta} (s_t|D, S_{<j}; \theta)}{|S|^\alpha}
 $$
 
 
-其中 $f(S_i)$ 为长度正则化的解码概率， $L_{ctr}$ 为对比损失，$i,j$ 为候选摘要排序后的索引，越小意味越好；即当 $j>i$ 时，$\text{ROUGE}(S_i,S^*) > \text{ROUGE}(S_j,S^*)$。其中 $\lambda_{ij} = (j-i) * \lambda$，为排名次数的边际调整参数。
+其中 $f(S_i)$ 为长度正则化的解码概率， $L_{ctr}$ 为对比损失，$i,j$ 为候选摘要排序后的索引，越小意味越好；即当 $j>i$ 时，$\text{ROUGE}(S_i,S^{*}) > \text{ROUGE}(S_j,S^{*})$。其中 $\lambda_{ij} = (j-i) * \lambda$，为排名次数的边际调整参数。
 
 最后，论文就将文本摘要抽取任务变成一个多任务学习框架，即：
 
