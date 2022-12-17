@@ -41,8 +41,6 @@ mt5模型的实现来自[huggingface的transformers库](https://github.com/huggi
 
 ## 技术方案介绍
 
-> 写方法介绍，不涉及具体代码
-
 ### 模型
 
 #### 1. mt5
@@ -180,8 +178,6 @@ model = MT5ForConditionalGeneration.from_pretrained(model_name)
 
 
 ## 技术方案实现
-
-> 简单介绍一下代码即可，例如主要的API分别实现了什么功能
 
 ### 1. mt5
 #### a.模型
